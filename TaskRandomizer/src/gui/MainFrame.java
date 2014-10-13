@@ -18,7 +18,7 @@ public class MainFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	public static String[] array;  
 
 	public MainFrame(String title) {
 		super(title);
@@ -29,6 +29,15 @@ public class MainFrame extends JFrame {
 		JPanel LeftPanel = new JPanel(new FlowLayout());
 		JPanel RightPanel = new JPanel(new FlowLayout());
 		JPanel FooterPanel = new JPanel(new FlowLayout());
+		
+		DefaultListModel LocationListModel = new DefaultListModel();
+		JList LocationList = new JList(LocationListModel);
+		
+        JTextField text = new JTextField(10); 
+		
+		JButton btnAddLocation = new JButton("Add Location");
+		JButton btnAddAction = new JButton("  Add Action  ");
+		JButton btnDeliteLocation = new JButton("    Delite location   ");
 		
 		MainFrame.this.add(MainPanel);
 		
@@ -45,34 +54,30 @@ public class MainFrame extends JFrame {
 		MainPanel.add(RightPanel,BorderLayout.EAST);
 		MainPanel.add(FooterPanel,BorderLayout.SOUTH);
 		
-		DefaultListModel LocationListModel = new DefaultListModel();
-		final JList LocationList = new JList(LocationListModel);
+		FooterPanel.add(btnAddLocation);
+		FooterPanel.add(btnAddAction);
+		FooterPanel.add(btnDeliteLocation);
+		CenterPanel.add(LocationList);
+		HeaderPanel.add(text);
+		
 		LocationListModel.addElement("111");
 		LocationListModel.addElement("112");
 		LocationListModel.addElement("113");
 		
-		JTextField text = new JTextField(10); 
-		
-		
-		
-		JButton btnAddLocation = new JButton("Add Location");
 		btnAddLocation.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		LocationListModel.addElement(text.getText());
+			}
+		});
+		btnDeliteLocation.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 
-				LocationListModel.addElement(text.getText());
+				LocationListModel.remove(LocationList.getSelectedIndex());
 				
 			}
 		});
-		JButton btnAddAction = new JButton("  Add Action  ");
-		
-		
-		
-		FooterPanel.add(btnAddLocation);
-		FooterPanel.add(btnAddAction);
-		CenterPanel.add(LocationList);
-		HeaderPanel.add(text);
 			
 	}
 	
