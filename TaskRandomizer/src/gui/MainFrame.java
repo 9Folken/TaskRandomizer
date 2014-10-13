@@ -37,16 +37,18 @@ public class MainFrame extends JFrame {
 		
 		JButton btnAddLocation = new JButton("Add Location");
 		JButton btnAddAction = new JButton("  Add Action  ");
-		JButton btnDeliteLocation = new JButton("    Delite location   ");
+		JButton btnDeleteLocation = new JButton("  Delete location  ");
+		
+		Color color = new Color(232, 115, 169);
 		
 		MainFrame.this.add(MainPanel);
 		
-		MainPanel.setBackground(Color.GRAY);
-		HeaderPanel.setBackground(Color.CYAN);
-		CenterPanel.setBackground(Color.LIGHT_GRAY);
-		LeftPanel.setBackground(Color.RED);
-		RightPanel.setBackground(Color.WHITE);
-		FooterPanel.setBackground(Color.BLACK);
+		MainPanel.setBackground(color);
+		HeaderPanel.setBackground(color);
+		CenterPanel.setBackground(color);
+		LeftPanel.setBackground(color);
+		RightPanel.setBackground(color);
+		FooterPanel.setBackground(color);
 		
 		MainPanel.add(HeaderPanel,BorderLayout.NORTH);
 		MainPanel.add(CenterPanel,BorderLayout.CENTER);
@@ -56,21 +58,17 @@ public class MainFrame extends JFrame {
 		
 		FooterPanel.add(btnAddLocation);
 		FooterPanel.add(btnAddAction);
-		FooterPanel.add(btnDeliteLocation);
-		CenterPanel.add(LocationList);
+		FooterPanel.add(btnDeleteLocation);
+		LeftPanel.add(LocationList);
 		HeaderPanel.add(text);
-		
-		LocationListModel.addElement("111");
-		LocationListModel.addElement("112");
-		LocationListModel.addElement("113");
-		
+		text.setText("enter the text");
 		btnAddLocation.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 		LocationListModel.addElement(text.getText());
 			}
 		});
-		btnDeliteLocation.addActionListener(new ActionListener() {
+		btnDeleteLocation.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -80,15 +78,5 @@ public class MainFrame extends JFrame {
 		});
 			
 	}
-	
-	
+			}
 		
-			
-		}
-		
-		
-		
-		
-	
-
-
