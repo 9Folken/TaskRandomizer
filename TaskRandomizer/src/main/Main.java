@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-public class Main implements ActionListener {
+public class Main {
 
 	public static void main(String[] args) {
 		MainFrame mainFrame = new MainFrame("Task Randomizer");
@@ -19,10 +19,6 @@ public class Main implements ActionListener {
 
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
