@@ -5,13 +5,14 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import main.GlobalVariable;
 
 public class MainFrame extends JFrame {
 	/**
@@ -31,7 +32,8 @@ public class MainFrame extends JFrame {
 		JPanel FooterPanel = new JPanel(new FlowLayout());
 		
 		DefaultListModel LocationListModel = new DefaultListModel();
-		JList LocationList = new JList(LocationListModel);
+		JList LocationList = new JList(GlobalVariable.locations);
+		LocationList.setModel(LocationListModel);
 		
         JTextField text = new JTextField(10); 
 		
@@ -61,7 +63,7 @@ public class MainFrame extends JFrame {
 		FooterPanel.add(btnDeleteLocation);
 		LeftPanel.add(LocationList);
 		HeaderPanel.add(text);
-		text.setText("enter the text");
+		text.setText("*****");
 		btnAddLocation.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -72,9 +74,10 @@ public class MainFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				LocationListModel.remove(LocationList.getSelectedIndex());
-				
-			}
+				//LocationListModel.remove(LocationList.getSelectedIndex());
+				GlobalVariable.locations[1] = "999";
+				LocationListModel.clear();
+				}
 		});
 			
 	}
