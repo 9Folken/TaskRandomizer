@@ -31,9 +31,10 @@ public class MainFrame extends JFrame {
 		JPanel RightPanel = new JPanel(new FlowLayout());
 		JPanel FooterPanel = new JPanel(new FlowLayout());
 		
-		DefaultListModel LocationListModel = new DefaultListModel();
+		
 		JList LocationList = new JList(GlobalVariable.locations);
-		LocationList.setModel(LocationListModel);
+		
+		
 		
         JTextField text = new JTextField(10); 
 		
@@ -67,16 +68,19 @@ public class MainFrame extends JFrame {
 		btnAddLocation.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-		LocationListModel.addElement(text.getText());
-			}
+			GlobalVariable.locations[GlobalVariable.counter] = text.getText();
+			GlobalVariable.counter++;
+			LocationList.updateUI();
+			
+					}
 		});
 		btnDeleteLocation.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//LocationListModel.remove(LocationList.getSelectedIndex());
-				GlobalVariable.locations[1] = "999";
-				LocationListModel.clear();
+				LocationList.c
+				
+				
 				}
 		});
 			
