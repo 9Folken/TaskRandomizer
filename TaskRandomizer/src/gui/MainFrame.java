@@ -78,7 +78,7 @@ public class MainFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				LocationList.c
+				//LocationList.c
 				
 				
 				}
@@ -86,4 +86,4 @@ public class MainFrame extends JFrame {
 			
 	}
 			}
-		// from github
+		// from home
