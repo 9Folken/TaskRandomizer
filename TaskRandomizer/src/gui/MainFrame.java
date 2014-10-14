@@ -2,14 +2,17 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import main.GlobalVariable;
@@ -32,7 +35,11 @@ public class MainFrame extends JFrame {
 		JPanel FooterPanel = new JPanel(new FlowLayout());
 		
 		
-		JList LocationList = new JList(GlobalVariable.locations);
+		JList locationList = new JList();
+		JScrollPane scrollPaneLocationList = new JScrollPane(locationList);
+		scrollPaneLocationList.setPreferredSize(new Dimension(100,300));
+		DefaultListModel locationListModel = new DefaultListModel();
+		locationList.setModel(locationListModel);
 		
 		
 		
@@ -62,15 +69,15 @@ public class MainFrame extends JFrame {
 		FooterPanel.add(btnAddLocation);
 		FooterPanel.add(btnAddAction);
 		FooterPanel.add(btnDeleteLocation);
-		LeftPanel.add(LocationList);
+		LeftPanel.add(scrollPaneLocationList);
 		HeaderPanel.add(text);
 		text.setText("*****");
 		btnAddLocation.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			GlobalVariable.locations[GlobalVariable.counter] = text.getText();
-			GlobalVariable.counter++;
-			LocationList.updateUI();
+			GlobalVariable.locations[GlobalVariable.actionCounter] = text.getText();
+			GlobalVariable.actionCounter++;
+			locationList.updateUI();
 			
 					}
 		});
@@ -78,12 +85,12 @@ public class MainFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//LocationList.c
+				
 				
 				
 				}
 		});
 			
 	}
-			}
+	}
 		// from 456798
