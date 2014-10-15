@@ -2,8 +2,9 @@ package main;
 
 public class GlobalVariable {
 
-	public static  String locations[] = new String[100];
-	public static  String actions[] = new String[100];
+	
+	public static  String tasksActual[] = new String[100];
+	public static  String tasksComplite[] = new String[100];
 	public static int locationCounter;
 	public static int actionCounter;
 
