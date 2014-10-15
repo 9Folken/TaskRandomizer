@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -25,6 +26,8 @@ public class MainFrame extends JFrame {
 	public static  String locations[] = new String[100];
 	public static  String actions[] = new String[100];  
 	Color color = new Color(232, 115, 169);
+	int k = 0;
+	int place = 0;
 	public MainFrame(String title) {
 		super(title);
 		
@@ -65,6 +68,7 @@ public class MainFrame extends JFrame {
 		JButton btnDeleteLocation = new JButton("  Delete location  ");
 		JButton btnDeleteAction = new JButton("  Delete action  ");
 		JButton btnStart = new JButton("  START!  ");
+		JButton btnWaw = new JButton("  WaW!  ");
 		
 
 		
@@ -93,6 +97,7 @@ public class MainFrame extends JFrame {
 		RightPanel.add(scrollPaneTasksCompliteList);
 		HeaderPanel.add(text);
 		CenterPanel.add(btnStart);
+		CenterPanel.add(btnWaw);
 		
 		text.setText("*****");
 		
@@ -150,7 +155,7 @@ public class MainFrame extends JFrame {
 				for (int i = 0; i < GlobalVariable.tasksActual.length; i++) {
 					GlobalVariable.tasksActual[i] = null;
 				}
-				int k = 0;
+				
 				for (int i = 0; i < locationListModel.getSize(); i++) {
 					for (int j = 0; j < actionListModel.getSize(); j++) {
 						
@@ -163,16 +168,35 @@ public class MainFrame extends JFrame {
 					//+actionListModel.getSize()
 					
 				}
-				
-				
-				
 				System.out.println(locationListModel.getSize());
 				System.out.println(locationListModel.getElementAt(0).toString());
 				tasksActualList.updateUI();
 				
 			}
+			
+			});
+		btnWaw.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			//	GlobalVariable.tasksComplite[0] = GlobalVariable.tasksActual[]
+				int random = (int)(Math.random()*k);
+				
+				
+				GlobalVariable.tasksComplite[place] = GlobalVariable.tasksActual[random];
+				GlobalVariable.tasksActual[random] = null;
+				//GlobalVariable.
+				
+				
+				System.out.println("random"+random);
+				System.out.println("place" + place);
+				place++;
+				tasksCompliteList.updateUI();
+			}
 		});
-		
+        
+        
 	}
 	}
 		// from 456798
