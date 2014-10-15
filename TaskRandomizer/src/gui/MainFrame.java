@@ -84,7 +84,7 @@ public class MainFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				ActionFrame actionFrame = new ActionFrame("Actions");
-				actionFrame.setVisible(true);
+				
 				actionFrame.setSize(600, 400);
 				actionFrame.setVisible(true);
 				actionFrame.setResizable(false);
