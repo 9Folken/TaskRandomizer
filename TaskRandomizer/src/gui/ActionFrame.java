@@ -18,7 +18,7 @@ import main.GlobalVariable;
 
 public class ActionFrame extends JFrame {
 
-	Dimension dimensionSmall = new Dimension(90,300);
+	Dimension dimensionSmall = new Dimension(100,300);
 	
 	public ActionFrame(String title) {
 		super(title);

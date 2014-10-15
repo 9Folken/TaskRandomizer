@@ -39,9 +39,8 @@ public class MainFrame extends JFrame {
 		JPanel LeftPanel = new JPanel(new FlowLayout());
 		JPanel RightPanel = new JPanel(new FlowLayout());
 		JPanel FooterPanel = new JPanel(new FlowLayout());
-		
-		Dimension dimensionSmall = new Dimension(90,300);
-		Dimension dimensionBig = new Dimension(150,300);
+				
+		Dimension dimensionBig = new Dimension(250,300);
 		
 		JList tasksActualList = new JList();
 		JScrollPane scrollPaneTasksActualList = new JScrollPane(tasksActualList);
@@ -80,12 +79,6 @@ public class MainFrame extends JFrame {
 		HeaderPanel.add(btnStart);
 		HeaderPanel.add(btnWaw);
 		
-		
-		
-		
-		
-		
-		
 		btnActions.addActionListener(new ActionListener() {
 			
 			@Override
@@ -94,9 +87,8 @@ public class MainFrame extends JFrame {
 				actionFrame.setVisible(true);
 				actionFrame.setSize(600, 400);
 				actionFrame.setVisible(true);
-				actionFrame.setLocationRelativeTo(null);
 				actionFrame.setResizable(false);
-				
+				actionFrame.setLocationRelativeTo(null);
 			}
 		});
 		
@@ -114,8 +106,9 @@ public class MainFrame extends JFrame {
 				locationFrame.setVisible(true);
 				locationFrame.setSize(600, 400);
 				locationFrame.setVisible(true);
-				locationFrame.setLocationRelativeTo(null);
 				locationFrame.setResizable(false);
+				locationFrame.setLocationRelativeTo(null);
+
 				
 			}
 		});

@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import main.GlobalVariable;
+
 public class LocationFrame extends JFrame {
 
 	Dimension dimensionSmall = new Dimension(90,300);
@@ -27,9 +29,7 @@ public class LocationFrame extends JFrame {
 	DefaultListModel locationListModel = new DefaultListModel();
 	locationList.setModel(locationListModel);
 	
-	locationListModel.addElement("Kichen");
-	locationListModel.addElement("Livin room");
-	
+		
 	JPanel headerPanel = new JPanel(new FlowLayout());
 	JPanel centerPanel = new JPanel(new FlowLayout());
 	JPanel footerPanel = new JPanel(new FlowLayout());
@@ -54,10 +54,11 @@ public class LocationFrame extends JFrame {
 	btnAddLocation.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-		//	GlobalVariable.locations[GlobalVariable.actionCounter] = text.getText();
-			locationListModel.addElement(text.getText());
-		//	GlobalVariable.actionCounter++;
-		//	locationList.updateUI();
+		GlobalVariable.locationsArrayList.add(text.getText());
+		locationListModel.clear();
+		for (int i = 0; i < GlobalVariable.locationsArrayList.size(); i++) {
+			locationListModel.addElement(GlobalVariable.locationsArrayList.get(i));
+		}
 			
 					}
 		});
@@ -67,7 +68,11 @@ public class LocationFrame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-		locationListModel.remove(locationList.getSelectedIndex());	
+			GlobalVariable.locationsArrayList.remove(locationList.getSelectedIndex());
+			locationListModel.clear();
+			for (int i = 0; i < GlobalVariable.locationsArrayList.size(); i++) {
+				locationListModel.addElement(GlobalVariable.locationsArrayList.get(i));
+			}	
 			
 			}
 	});
