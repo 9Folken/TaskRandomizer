@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
 	public MainFrame(String title) {
 		super(title);
 		
-		//****************  Интерфейс  **********************
+		//****************  *******  **********************
 		
 		JPanel MainPanel = new JPanel(new BorderLayout());
 		JPanel HeaderPanel = new JPanel(new FlowLayout());
@@ -39,27 +39,31 @@ public class MainFrame extends JFrame {
 		JPanel LeftPanel = new JPanel(new FlowLayout());
 		JPanel RightPanel = new JPanel(new FlowLayout());
 		JPanel FooterPanel = new JPanel(new FlowLayout());
+		
+		Dimension dimensionSmall = new Dimension(90,300);
+		Dimension dimensionBig = new Dimension(150,300);
+		
 				
 		JList locationList = new JList();
 		JScrollPane scrollPaneLocationList = new JScrollPane(locationList);
-		scrollPaneLocationList.setPreferredSize(new Dimension(100,300));
+		scrollPaneLocationList.setPreferredSize(dimensionSmall);
 		DefaultListModel locationListModel = new DefaultListModel();
 		locationList.setModel(locationListModel);
 		
 		JList actionList = new JList();
 		JScrollPane scrollPaneActionList = new JScrollPane(actionList);
-		scrollPaneActionList.setPreferredSize(new Dimension(100,300));
+		scrollPaneActionList.setPreferredSize(dimensionSmall);
 		DefaultListModel actionListModel = new DefaultListModel();
 		actionList.setModel(actionListModel);
 		
 		JList tasksActualList = new JList(GlobalVariable.tasksActual);
 		JScrollPane scrollPaneTasksActualList = new JScrollPane(tasksActualList);
-		scrollPaneTasksActualList.setPreferredSize(new Dimension(100,300));
+		scrollPaneTasksActualList.setPreferredSize(dimensionBig);
 
 		
 		JList tasksCompliteList = new JList(GlobalVariable.tasksComplite);
 		JScrollPane scrollPaneTasksCompliteList = new JScrollPane(tasksCompliteList);
-		scrollPaneTasksCompliteList.setPreferredSize(new Dimension(100,300));
+		scrollPaneTasksCompliteList.setPreferredSize(dimensionBig);
 		
 		JTextField text = new JTextField(10); 
 		
@@ -96,15 +100,15 @@ public class MainFrame extends JFrame {
 		RightPanel.add(scrollPaneTasksActualList);
 		RightPanel.add(scrollPaneTasksCompliteList);
 		HeaderPanel.add(text);
-		CenterPanel.add(btnStart);
-		CenterPanel.add(btnWaw);
+		HeaderPanel.add(btnStart);
+		HeaderPanel.add(btnWaw);
 		
 		text.setText("*****");
 		
 		locationListModel.addElement("Kichen");
 		locationListModel.addElement("Livin room");
-		actionListModel.addElement("Пылесосинг");
-		actionListModel.addElement("Влажн. уборка");
+		actionListModel.addElement("Vacuuming");
+		actionListModel.addElement("Cleaning");
 		
 		btnAddLocation.addActionListener(new ActionListener() {
 		@Override
