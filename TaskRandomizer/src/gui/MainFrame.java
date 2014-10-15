@@ -43,11 +43,11 @@ public class MainFrame extends JFrame {
 		Dimension dimensionSmall = new Dimension(90,300);
 		Dimension dimensionBig = new Dimension(150,300);
 		
-		JList tasksActualList = new JList(GlobalVariable.tasksActual);
+		JList tasksActualList = new JList();
 		JScrollPane scrollPaneTasksActualList = new JScrollPane(tasksActualList);
 		scrollPaneTasksActualList.setPreferredSize(dimensionBig);
 		
-		JList tasksCompliteList = new JList(GlobalVariable.tasksComplite);
+		JList tasksCompliteList = new JList();
 		JScrollPane scrollPaneTasksCompliteList = new JScrollPane(tasksCompliteList);
 		scrollPaneTasksCompliteList.setPreferredSize(dimensionBig);
 		
@@ -74,8 +74,8 @@ public class MainFrame extends JFrame {
 		FooterPanel.add(btnActions);
 		FooterPanel.add(btnLocations);
 				
-		RightPanel.add(scrollPaneTasksActualList);
-		RightPanel.add(scrollPaneTasksCompliteList);
+		CenterPanel.add(scrollPaneTasksActualList);
+		CenterPanel.add(scrollPaneTasksCompliteList);
 	
 		HeaderPanel.add(btnStart);
 		HeaderPanel.add(btnWaw);

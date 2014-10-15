@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import main.GlobalVariable;
+
 public class ActionFrame extends JFrame {
 
 	Dimension dimensionSmall = new Dimension(90,300);
@@ -26,10 +28,7 @@ public class ActionFrame extends JFrame {
 	scrollPaneActionList.setPreferredSize(dimensionSmall);
 	DefaultListModel actionListModel = new DefaultListModel();
 	actionList.setModel(actionListModel);
-	
-	actionListModel.addElement("Vacuuming");
-	actionListModel.addElement("Cleaning");
-	
+			
 	JPanel headerPanel = new JPanel(new FlowLayout());
 	JPanel centerPanel = new JPanel(new FlowLayout());
 	JPanel footerPanel = new JPanel(new FlowLayout());
@@ -53,8 +52,11 @@ public class ActionFrame extends JFrame {
 	btnAddAction.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-		//	GlobalVariable.locations[GlobalVariable.actionCounter] = text.getText();
-			actionListModel.addElement(text.getText());
+			GlobalVariable.actionsArrayList.add(text.getText());
+			actionListModel.clear();
+			for (int i = 0; i < GlobalVariable.actionsArrayList.size(); i++) {
+				actionListModel.addElement(GlobalVariable.actionsArrayList.get(i));
+			}
 		//	GlobalVariable.actionCounter++;
 		//	locationList.updateUI();
 			
@@ -65,8 +67,11 @@ public class ActionFrame extends JFrame {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			actionListModel.remove(actionList.getSelectedIndex());	
+			GlobalVariable.actionsArrayList.remove(actionList.getSelectedIndex());
+			actionListModel.clear();
+			for (int i = 0; i < GlobalVariable.actionsArrayList.size(); i++) {
+				actionListModel.addElement(GlobalVariable.actionsArrayList.get(i));
+			}
 			
 			}
 	});
