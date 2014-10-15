@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 public class Main {
 
 	public static void main(String[] args) {
-		GlobalVariable.fill(); 
+		//GlobalVariable.fill(); 
 		
 		MainFrame mainFrame = new MainFrame("Task Randomizer");
 		mainFrame.setSize(600, 400);

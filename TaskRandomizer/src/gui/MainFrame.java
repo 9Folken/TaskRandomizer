@@ -41,6 +41,12 @@ public class MainFrame extends JFrame {
 		DefaultListModel locationListModel = new DefaultListModel();
 		locationList.setModel(locationListModel);
 		
+		JList actionList = new JList();
+		JScrollPane scrollPaneActionList = new JScrollPane(actionList);
+		scrollPaneActionList.setPreferredSize(new Dimension(100,300));
+		DefaultListModel actionListModel = new DefaultListModel();
+		actionList.setModel(actionListModel);
+		
 		
 		
         JTextField text = new JTextField(10); 
@@ -48,6 +54,7 @@ public class MainFrame extends JFrame {
 		JButton btnAddLocation = new JButton("Add Location");
 		JButton btnAddAction = new JButton("  Add Action  ");
 		JButton btnDeleteLocation = new JButton("  Delete location  ");
+		JButton btnDeleteAction = new JButton("  Delete action  ");
 		
 		Color color = new Color(232, 115, 169);
 		
@@ -69,24 +76,38 @@ public class MainFrame extends JFrame {
 		FooterPanel.add(btnAddLocation);
 		FooterPanel.add(btnAddAction);
 		FooterPanel.add(btnDeleteLocation);
+		FooterPanel.add(btnDeleteAction);
 		LeftPanel.add(scrollPaneLocationList);
+		LeftPanel.add(scrollPaneActionList);
 		HeaderPanel.add(text);
 		text.setText("*****");
 		btnAddLocation.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			GlobalVariable.locations[GlobalVariable.actionCounter] = text.getText();
-			GlobalVariable.actionCounter++;
-			locationList.updateUI();
+		//	GlobalVariable.locations[GlobalVariable.actionCounter] = text.getText();
+			locationListModel.addElement(text.getText());
+		//	GlobalVariable.actionCounter++;
+		//	locationList.updateUI();
 			
 					}
 		});
+		
+		btnAddAction.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				actionListModel.addElement(text.getText());
+				
+			}
+		});
+		
+		
 		btnDeleteLocation.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				
+			locationListModel.remove(locationList.getSelectedIndex());	
 				
 				}
 		});

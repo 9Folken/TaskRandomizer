@@ -7,7 +7,7 @@ public class GlobalVariable {
 	public static int locationCounter;
 	public static int actionCounter;
 
- 
+ /**
 public static void fill(){
 	
 
@@ -18,5 +18,5 @@ public static void fill(){
 	}
 
 }
-
+*/
 }
