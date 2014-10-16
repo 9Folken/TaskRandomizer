@@ -26,7 +26,7 @@ public class MainFrame extends JFrame {
 	
 	
 	Color color = new Color(232, 115, 169);
-	int k = 0;
+	
 	int place = 0;
 	public MainFrame(String title) {
 		super(title);
@@ -45,10 +45,14 @@ public class MainFrame extends JFrame {
 		JList tasksActualList = new JList();
 		JScrollPane scrollPaneTasksActualList = new JScrollPane(tasksActualList);
 		scrollPaneTasksActualList.setPreferredSize(dimensionBig);
+		DefaultListModel tasksActualListModel = new DefaultListModel();
+		tasksActualList.setModel(tasksActualListModel);
 		
 		JList tasksCompliteList = new JList();
 		JScrollPane scrollPaneTasksCompliteList = new JScrollPane(tasksCompliteList);
 		scrollPaneTasksCompliteList.setPreferredSize(dimensionBig);
+		DefaultListModel tasksCompliteListModel = new DefaultListModel();
+		tasksCompliteList.setModel(tasksCompliteListModel);
 		
 		JButton btnLocations = new JButton("Locations");
 		JButton btnActions = new JButton("  Actions  ");
@@ -91,12 +95,6 @@ public class MainFrame extends JFrame {
 				actionFrame.setLocationRelativeTo(null);
 			}
 		});
-		
-		
-		
-        
-        
-			
 			
 		btnLocations.addActionListener(new ActionListener() {
 			
@@ -112,7 +110,56 @@ public class MainFrame extends JFrame {
 				
 			}
 		});
-        
+		
+		
+		btnStart.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int k = 0;
+				GlobalVariable.actualTasksArrayList.clear();
+				GlobalVariable.completeTasksArrayList.clear();
+				for (int i = 0; i < GlobalVariable.locationsArrayList.size(); i++) {
+					for (int j = 0; j < GlobalVariable.actionsArrayList.size(); j++) {
+						GlobalVariable.actualTasksArrayList.add(k, GlobalVariable.locationsArrayList.get(i)+
+								" - "+GlobalVariable.actionsArrayList.get(j));
+						//System.out.println(GlobalVariable.actualTasksArrayList.get(k));
+						
+						
+						
+						k++;
+					}
+				}
+				tasksActualListModel.clear();
+				for (int g = 0; g < GlobalVariable.actualTasksArrayList.size(); g++) {
+					tasksActualListModel.addElement(GlobalVariable.actualTasksArrayList.get(g));
+				}
+				
+			}
+		});
+        btnWaw.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+					int rand = ((int)(Math.random()*GlobalVariable.actualTasksArrayList.size()));
+			System.out.println(rand);
+			GlobalVariable.completeTasksArrayList.add(GlobalVariable.actualTasksArrayList.get(rand));
+			GlobalVariable.actualTasksArrayList.remove(rand);
+				
+			tasksActualListModel.clear();
+			for (int g = 0; g < GlobalVariable.actualTasksArrayList.size(); g++) {
+				tasksActualListModel.addElement(GlobalVariable.actualTasksArrayList.get(g));
+			}
+			
+			tasksCompliteListModel.clear();
+			for (int g = 0; g < GlobalVariable.completeTasksArrayList.size(); g++) {
+				tasksCompliteListModel.addElement(GlobalVariable.completeTasksArrayList.get(g));
+			}
+			
+			}
+		});
         
 	}
 	}

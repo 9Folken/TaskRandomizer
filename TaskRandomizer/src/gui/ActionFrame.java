@@ -49,6 +49,11 @@ public class ActionFrame extends JFrame {
 	footerPanel.add(btnAddAction);
 	footerPanel.add(btnDeleteAction);
 	
+	actionListModel.clear();
+	for (int i = 0; i < GlobalVariable.actionsArrayList.size(); i++) {
+		actionListModel.addElement(GlobalVariable.actionsArrayList.get(i));
+	}
+	
 	btnAddAction.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {

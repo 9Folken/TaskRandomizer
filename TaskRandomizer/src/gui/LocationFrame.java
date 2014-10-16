@@ -51,6 +51,11 @@ public class LocationFrame extends JFrame {
 	footerPanel.add(btnAddLocation);
 	footerPanel.add(btnDeleteLocation);
 	
+	locationListModel.clear();
+	for (int i = 0; i < GlobalVariable.locationsArrayList.size(); i++) {
+		locationListModel.addElement(GlobalVariable.locationsArrayList.get(i));
+	}
+	
 	btnAddLocation.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
