@@ -1,8 +1,9 @@
 package main;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GlobalVariable {
+public class GlobalVariable implements Serializable {
 
 	public static ArrayList<String> actionsArrayList = new ArrayList<String>();
 	public static ArrayList<String> locationsArrayList = new ArrayList<String>();

@@ -103,7 +103,6 @@ public class MainFrame extends JFrame {
 				LocationFrame locationFrame = new LocationFrame("Locations");
 				locationFrame.setVisible(true);
 				locationFrame.setSize(600, 400);
-				locationFrame.setVisible(true);
 				locationFrame.setResizable(false);
 				locationFrame.setLocationRelativeTo(null);
 
